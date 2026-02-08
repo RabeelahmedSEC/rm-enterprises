@@ -46,4 +46,60 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+  // Products page: collect selected items and open Contact with prefill
+  const goQuote = document.getElementById("goQuote");
+  if (goQuote) {
+    goQuote.addEventListener("click", () => {
+      const items = Array.from(document.querySelectorAll(".q-item:checked"))
+        .map(x => x.value);
+
+      const notes = (document.getElementById("qNotes")?.value || "").trim();
+
+      if (items.length === 0 && !notes) {
+        alert("Please select at least one product or write notes/quantities.");
+        return;
+      }
+
+      // Save in localStorage so contact page can read it
+      const payload = {
+        items,
+        notes,
+        ts: Date.now()
+      };
+      localStorage.setItem("rm_quote_selection", JSON.stringify(payload));
+
+      // Go to contact page
+      window.location.href = "contact.html";
+    });
+  }
+
+  // Contact page: prefill textarea if selection exists
+  const itemsBox = document.getElementById("fItems");
+  if (itemsBox) {
+    try {
+      const raw = localStorage.getItem("rm_quote_selection");
+      if (raw) {
+        const data = JSON.parse(raw);
+
+        // Only use if it's recent (optional safety)
+        const isRecent = data?.ts && (Date.now() - data.ts) < 1000 * 60 * 60 * 24; // 24 hours
+
+        if (isRecent && (data.items?.length || data.notes)) {
+          const lines = [];
+          if (data.items?.length) {
+            lines.push("Selected items:");
+            data.items.forEach((it, i) => lines.push(`${i + 1}) ${it}`));
+          }
+          if (data.notes) {
+            lines.push("", "Notes / quantities:", data.notes);
+          }
+          lines.push("", "Delivery location:", "");
+
+          // Only prefill if user hasn't typed anything yet
+          if (!itemsBox.value.trim()) itemsBox.value = lines.join("\n");
+        }
+      }
+    } catch (e) {}
+  }
+
 
