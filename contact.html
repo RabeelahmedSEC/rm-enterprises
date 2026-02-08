@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | RM Enterprises</title>
+  <meta name="description" content="Contact RM Enterprises for janitorial and hygiene supplies in Karachi. Request a quotation via WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <div class="mark">RM</div>
+      <div>
+        <h1>RM Enterprises</h1>
+        <p>Clean Solutions, Trusted Quality</p>
+      </div>
+    </a>
+
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">Products</a>
+      <a class="active" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding:52px 0 26px">
+  <div class="container">
+    <div class="kicker">Contact</div>
+    <h2 class="big" style="font-size:38px">Partner with RM Enterprises today.</h2>
+    <p class="lead" style="max-width:860px">
+      Send your requirement list (items + quantities + location) and we’ll share quotation and delivery timeline.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid2">
+      <div class="tile">
+        <h4>Details</h4>
+        <p class="muted">City: <span id="cityText"></span></p>
+        <p class="muted">Phone: <span id="phoneText"></span></p>
+        <p class="muted">Email: <span id="emailText"></span></p>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+          <a class="btn" id="waBtn" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+          <a class="btn btn-ghost" id="mailBtn" href="#">Email</a>
+          <a class="btn btn-ghost" id="callBtn" href="#">Call</a>
+        </div>
+
+        <p class="muted small" style="margin-top:12px">
+          “Let us customize a supply solution for your business.”
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Request a Quote</h3>
+        <p class="muted small">This form will open WhatsApp with your message.</p>
+
+        <form class="form" id="quoteForm">
+          <input class="input" id="fName" placeholder="Your Name" required />
+          <input class="input" id="fCompany" placeholder="Company / Institute Name" />
+          <input class="input" id="fLoc" placeholder="Delivery Location (Area/City)" required />
+          <textarea class="input" id="fItems" placeholder="Items + quantities (example: handwash 5L x 4, tissue box x 30, phenyl 3L x 10)" required></textarea>
+          <button class="btn btn-full" type="submit">Send on WhatsApp</button>
+        </form>
+
+        <div style="margin-top:12px">
+          <a class="btn btn-ghost btn-full" href="products.html">View Product Categories</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> RM Enterprises. All rights reserved.</div>
+    <div>Clean Solutions, Trusted Quality</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
