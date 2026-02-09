@@ -400,4 +400,26 @@ a:hover{
   transform: translateY(-6px);
   box-shadow: 0 20px 40px rgba(47,143,214,.25);
 }
+.site-header{
+  background:#ffffff;
+  padding:14px 0;
+  border-bottom:1px solid #e5eaf0;
+}
+
+.header-flex{
+  display:flex;
+  align-items:center;
+}
+
+.logo{
+  height:52px;
+  width:auto;
+  cursor:pointer;
+  transition: transform .2s ease;
+}
+
+.logo:hover{
+  transform: scale(1.05);
+}
+
 
